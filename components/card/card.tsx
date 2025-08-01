@@ -21,7 +21,6 @@ const Card = ({ imgUrl = "https://images.unsplash.com/photo-1485846234645-a62644
     const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 }
 
     return (
-        <div>
             <div className={styles.container}>
                 <motion.div
                     className={cls(styles.imgMotionWrapper, classMap[size])}
@@ -36,7 +35,6 @@ const Card = ({ imgUrl = "https://images.unsplash.com/photo-1485846234645-a62644
                     />
                 </motion.div>
             </div>
-        </div>
     )
 }
 
