@@ -10,8 +10,8 @@ const Card = ({ imgUrl = "https://images.unsplash.com/photo-1485846234645-a62644
     const [imgSrc, setImgSrc] = useState(imgUrl)
     const classMap = {
         large: styles.lgItem,
-        medium: styles.medium,
-        small: styles.small
+        medium: styles.mdItem,
+        small: styles.smItem
     }
 
     const handleOnError = () => {

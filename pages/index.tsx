@@ -24,7 +24,7 @@ export default function Home( { disneyVideos, productivityVideos, travelVideos, 
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <div className={styles.main}>
-            <NavBar username="deepanm" />
+            <NavBar username="deep.mgn@gmail.com" />
             <Banner 
               title="Clifford the red dog"
               subTitle="a very cute dog"
@@ -33,8 +33,8 @@ export default function Home( { disneyVideos, productivityVideos, travelVideos, 
 
             <div className={styles.sectionWrapper}>
               <SectionCards title="Popular" videos={popularVideos} size="large" />
-              <SectionCards title="Travel" videos={travelVideos} size="large" />
-              <SectionCards title="Productivity" videos={productivityVideos} size="large" />
+              <SectionCards title="Travel" videos={travelVideos} size="medium" />
+              <SectionCards title="Productivity" videos={productivityVideos} size="small" />
               <SectionCards title="Disney" videos={disneyVideos} size="large" />
             </div>
           </div>
