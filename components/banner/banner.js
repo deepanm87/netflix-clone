@@ -1,11 +1,14 @@
 import Image from "next/image"
+import { useRouter } from "next/router"
 import styles from "./banner.module.css"
 import PlayIcon from "@/public/static/play_arrow.svg"
 
-const Banner = ({ title, subTitle, imgUrl }) => {
+const Banner = ({ title, subTitle, imgUrl, videoId }) => {
+
+    const router = useRouter()
 
     const handleOnPlay = () => {
-        console.log('clicked')
+        router.push(`video/${videoId}`)
     }
 
     return (
