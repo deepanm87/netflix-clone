@@ -67,16 +67,14 @@
 }
 
 .username {
-    font-size: 0.5rem;
+    font-size: 1rem;
 }
 
 .navDropdown {
     position: absolute;
-    margin-left: auto;
+    margin-left: 5rem;
     margin-top: 0.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-right: 0.5rem;
+    padding: 0.5rem 1rem;
     background-color: var(--black50);
     border-width: 1px;
     color: var(--white);
