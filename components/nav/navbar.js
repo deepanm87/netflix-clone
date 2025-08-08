@@ -9,22 +9,24 @@ const Navbar = () => {
 
     const [showDropdown, setShowDropdown] = useState(false)
     const [username, setUsername] = useState("")
+    const [didToken, setDidToken] = useState("")
     const router = useRouter()
 
     useEffect( () => {
-        async function getUsername() {
+        const applyUsernameInNav = async () => {
             try {
                 const { email, issuer } = await magic.user.getInfo()
                 const didToken = await magic.user.getIdToken()
                 console.log(email)
                 if (email) {
                     setUsername(email)
+                    setDidToken(didToken)
                 }
             } catch (error) {
                 console.error(`Error retrieving email, ${error}`)
             }
         }
-        getUsername()
+        applyUsernameInNav()
     }, [])
     
     const handleOnClickHome = e => {
@@ -46,8 +48,15 @@ const Navbar = () => {
         e.preventDefault()
 
         try {
-            await magic.user.logout()
-            router.push("/login")
+            const response = await fetch("/api/logout", {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${didToken}`,
+                    "Content-Type": "application/json"
+                }
+            })
+
+            const res = await response.json()
         } catch (error) {
             console.error(`Error logging out, ${error}`)
         }
@@ -85,8 +94,8 @@ const Navbar = () => {
                             >
                             <p className={styles.username}>{username}</p>
                             <Image 
-                                src="/static/expand_more.svg"
-                                alt="expand more"
+                                src={"/static/expand_more.svg"}
+                                alt="expand dropdown"
                                 width={24}
                                 height={24}
                             />

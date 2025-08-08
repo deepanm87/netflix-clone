@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import styles from "@/styles/Login.module.css"
 import { magic } from "@/lib/magic-client"
-
+import styles from "@/styles/Login.module.css"
 
 const Login = () => {
 
@@ -35,7 +34,6 @@ const Login = () => {
 
     const handleLoginWithEmail = async e => {
         e.preventDefault()
-        setIsLoading(true)
 
         if (email) {
             if (email) {
@@ -63,8 +61,6 @@ const Login = () => {
                     console.error(`Something went wrong logging in ${error}`)
                     setIsLoading(false)
                 }
-            } else {
-                setUserMsg("Something went wrong logging in")
             }
         } else {
             setIsLoading(false)
