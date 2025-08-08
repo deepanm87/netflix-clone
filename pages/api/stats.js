@@ -4,7 +4,7 @@ import { verifyToken } from "@/lib/utils"
 export default async function stats(req, resp) {
     
     try {
-        const token = req.cookies.token
+        const token = req ? req.cookies.token : null
         if (!token) {
             resp.status(403).send({})
         } else {

@@ -36,8 +36,7 @@ const Login = () => {
         e.preventDefault()
 
         if (email) {
-            if (email) {
-                try {
+            try {
                     setIsLoading(true)
                     const didToken = await magic.auth.loginWithMagicLink({ email })
                     if (didToken) {
@@ -61,7 +60,6 @@ const Login = () => {
                     console.error(`Something went wrong logging in ${error}`)
                     setIsLoading(false)
                 }
-            }
         } else {
             setIsLoading(false)
             setUserMsg("Enter a valid email address")
